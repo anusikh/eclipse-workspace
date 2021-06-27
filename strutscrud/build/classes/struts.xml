@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">  
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="Register" class="org.anusikh.action.RegisterAction">
+			<result name="Register">/register.jsp</result>
+		</action>
+		<action name="Report" class="org.anusikh.action.ReportAction">
+			<result name="Report">/report.jsp</result>
+		</action>
+		<action name="Update" class="org.anusikh.action.UpdateAction">
+			<result name="Update">/update.jsp</result>
+		</action>
+		<action name="Delete" class="org.anusikh.action.DeleteAction">
+			<result name="Delete">/delete.jsp</result>
+		</action>
+	</package>
+</struts>
