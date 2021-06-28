@@ -44,3 +44,5 @@ public class LoginAction implements Action, ModelDriven<User>, ServletContextAwa
 	}
 
 }
+
+// To access , url: http://localhost:8080/Struts2Hibernate/User/home
