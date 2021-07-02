@@ -6,13 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Login Page</title>
+<title>Register Page</title>
 </head>
 <body>
-<h3>Welcome User, please login below</h3>
-<s:form action="login">
+<h3>Welcome User, please Register below</h3>
+<s:form action="register">
 	<s:textfield name="id" label="User ID"></s:textfield>
 	<s:textfield name="pwd" label="Password" type="password"></s:textfield>
+	<s:textfield name="name" label="Name"></s:textfield>
+	<s:textfield name="email" label="EMail"></s:textfield>
 	<s:submit value="Login"></s:submit>
 </s:form>
 </body>

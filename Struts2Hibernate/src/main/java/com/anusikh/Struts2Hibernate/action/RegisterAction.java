@@ -12,30 +12,22 @@ import main.java.com.anusikh.Struts2Hibernate.dao.UserDAO;
 import main.java.com.anusikh.Struts2Hibernate.dao.UserDAOImpl;
 import main.java.com.anusikh.Struts2Hibernate.model.User;
 
-public class LoginAction implements Action, ModelDriven<User>, ServletContextAware {
+public class RegisterAction implements Action, ModelDriven<User>, ServletContextAware {
 
-	public String login() throws Exception {
-
+	public String register() throws Exception {
 		SessionFactory sf = (SessionFactory) ctx.getAttribute("SessionFactory");
 		UserDAO userDAO = new UserDAOImpl(sf);
-		User userDB = userDAO.getUserByCredentials(user.getId(), user.getPwd());
-		if (userDB == null)
+		int res = userDAO.registerCredentials(user.getId(), user.getPwd(), user.getName(), user.getEmail());
+
+		if (res == 0)
 			return ERROR;
 		else {
-			user.setEmail(userDB.getEmail());
-			user.setName(userDB.getName());
 			return SUCCESS;
 		}
 	}
 
-	@Override
-	public User getModel() {
-		return user;
-	}
-
-	private User user = new User();
-
 	private ServletContext ctx;
+	private User user = new User();
 
 	@Override
 	public void setServletContext(ServletContext sc) {
@@ -48,6 +40,9 @@ public class LoginAction implements Action, ModelDriven<User>, ServletContextAwa
 		return null;
 	}
 
+	@Override
+	public User getModel() {
+		// TODO Auto-generated method stub
+		return user;
+	}
 }
-
-// To access , url: http://localhost:8080/Struts2Hibernate/User/home

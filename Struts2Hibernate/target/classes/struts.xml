@@ -13,10 +13,18 @@ Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 		<action name="home">
 			<result>/login.jsp</result>
 		</action>
-		<action name="login" class="main.java.com.anusikh.Struts2Hibernate.action.LoginAction">
+		<action name="login" class="main.java.com.anusikh.Struts2Hibernate.action.LoginAction" method="login">
 			<result name="success">/welcome.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="regHome">
+			<result>/register.jsp</result>
+		</action>
+		<action name="register" class="main.java.com.anusikh.Struts2Hibernate.action.RegisterAction" method="register">
+			<result name="success">/done.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
-
+	
+	
 </struts>

@@ -29,4 +29,22 @@ public class UserDAOImpl implements UserDAO {
 		session.close();
 		return user;
 	}
+
+	public int registerCredentials(String userId, String password, String name, String email) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		User user = new User();
+		user.setId(userId);
+		user.setPwd(password);
+		user.setEmail(email);
+		user.setName(name);
+		session.save(user);
+		tx.commit();
+		session.close();
+		if (user.getId() != null) // Done this because by default session.save() returns the newly formed object
+									// itself
+			return 1;
+		else
+			return 0;
+	}
 }
