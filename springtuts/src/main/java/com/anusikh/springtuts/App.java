@@ -1,5 +1,8 @@
 package com.anusikh.springtuts;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  * Hello world!
  *
@@ -66,9 +69,9 @@ public class App {
 		// AUTOWIRED
 		// Remove the constructor from Tyre class and the <property> tag from spring.xml
 
-//		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-//		Car obj = (Car) context.getBean("car");
-//		obj.drive();
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		Car obj = (Car) context.getBean("car");
+		obj.drive();
 
 		// In Car class, create an object of Tyre and create its getter/Setter
 		// Add @Autowired at the top, the control will flow into spring.xml, check the

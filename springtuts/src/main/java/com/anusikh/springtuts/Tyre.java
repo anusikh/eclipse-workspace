@@ -2,6 +2,9 @@ package com.anusikh.springtuts;
 
 import org.springframework.stereotype.Component;
 
+//Autowired on Properties means, no need of setter method for spellCheck
+//Autowired on Setter means, no need of property tags
+
 @Component
 public class Tyre {
 
