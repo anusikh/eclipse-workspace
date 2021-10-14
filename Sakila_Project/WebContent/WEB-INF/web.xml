@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Sakila_Project</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 
+  <servlet>
+    <servlet-name>PopulateTableData</servlet-name>
+    <servlet-class>backend.PopulateTableData</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>PopulateTableData</servlet-name>
+    <url-pattern>/PopulateTableData</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PopulateLanguageData</servlet-name>
+    <servlet-class>backend.PopulateLanguageData</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>PopulateLanguageData</servlet-name>
+    <url-pattern>/PopulateLanguageData</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PopulateSpecialFeaturesData</servlet-name>
+    <servlet-class>backend.PopulateSpecialFeaturesData</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>PopulateSpecialFeaturesData</servlet-name>
+    <url-pattern>/PopulateSpecialFeaturesData</url-pattern>
+  </servlet-mapping>
+   -->
+   
+   <filter>
+	<filter-name>struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>

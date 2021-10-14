@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+   "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="default" extends="json-default">
+		<action name="fetchFilmData" class="com.highradius.Action.FilmData" method="fetchData">
+			<result name="success" type="json"></result>
+			<result name="failure" type="json"></result>
+
+		</action>
+
+		<action name="fetchotherFilmData" class="com.highradius.Action.FilmData" method="fetchOtherData">
+			<result name="success" type="json"></result>
+			<result name="failure" type="json"></result>
+
+		</action>
+
+		<action name="deleteFilmData" class="com.highradius.Action.FilmData" method="deleteData">
+			<result name="success" type="json"></result>
+			<result name="failure" type="json"></result>
+
+		</action>
+
+		<action name="addFilmData" class="com.highradius.Action.FilmData" method="addData">
+			<result name="success" type="json"></result>
+			<result name="failure" type="json"></result>
+
+		</action>
+
+		<action name="editFilmData" class="com.highradius.Action.FilmData" method="editData">
+			<result name="success" type="json"></result>
+			<result name="failure" type="json"></result>
+
+		</action>
+	</package>
+</struts>
