@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Struts2Starter" path="/Struts2Starter" reloadable="true" source="org.eclipse.jst.jee.server:Struts2Starter"/><Context docBase="TutorialFinder" path="/TutorialFinder" reloadable="true" source="org.eclipse.jst.jee.server:TutorialFinder"/><Context docBase="strutscrud" path="/strutscrud" reloadable="true" source="org.eclipse.jst.jee.server:strutscrud"/><Context docBase="Struts2Hibernate" path="/Struts2Hibernate" reloadable="true" source="org.eclipse.jst.jee.server:Struts2Hibernate"/></Host>
+      <Context docBase="Struts2Starter" path="/Struts2Starter" reloadable="true" source="org.eclipse.jst.jee.server:Struts2Starter"/><Context docBase="TutorialFinder" path="/TutorialFinder" reloadable="true" source="org.eclipse.jst.jee.server:TutorialFinder"/><Context docBase="strutscrud" path="/strutscrud" reloadable="true" source="org.eclipse.jst.jee.server:strutscrud"/><Context docBase="Struts2Hibernate" path="/Struts2Hibernate" reloadable="true" source="org.eclipse.jst.jee.server:Struts2Hibernate"/><Context docBase="Sakila_Project" path="/Sakila_Project" reloadable="true" source="org.eclipse.jst.jee.server:Sakila_Project"/></Host>
     </Engine>
   </Service>
 </Server>
