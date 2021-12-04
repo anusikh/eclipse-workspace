@@ -2,6 +2,8 @@ package com.anusikh.springbootcrud.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anusikh.springbootcrud.entity.AuthenticationRequest;
 import com.anusikh.springbootcrud.entity.AuthenticationResponse;
 import com.anusikh.springbootcrud.entity.Product;
+import com.anusikh.springbootcrud.service.IpRequestService;
 import com.anusikh.springbootcrud.service.ProductService;
 import com.anusikh.springbootcrud.util.JwtUtil;
 
@@ -39,6 +42,9 @@ public class ProductController {
 
 	@Autowired
 	private JwtUtil jwtTokenUtil;
+
+	@Autowired
+	private IpRequestService ipRequestService;
 
 	@PostMapping("/addProduct")
 	public Product addProduct(@RequestBody Product product) {
@@ -92,6 +98,12 @@ public class ProductController {
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 
+	}
+
+	@GetMapping("/ipAddress") // Can be used to IP ban Users
+	public String getIpAddress(HttpServletRequest request) {
+		String ip = ipRequestService.getClientIp(request);
+		return ip;
 	}
 
 }
