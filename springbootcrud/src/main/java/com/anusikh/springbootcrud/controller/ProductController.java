@@ -2,7 +2,9 @@ package com.anusikh.springbootcrud.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +32,7 @@ import com.anusikh.springbootcrud.service.ProductService;
 import com.anusikh.springbootcrud.util.JwtUtil;
 
 @RestController
+@CrossOrigin(allowCredentials = "true", origins = "http://localhost:3000")
 public class ProductController {
 
 	@Autowired
@@ -82,8 +86,8 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
-			throws Exception {
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest,
+			HttpServletResponse res) throws Exception {
 
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -95,6 +99,13 @@ public class ProductController {
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
+
+		Cookie cookie = new Cookie("jwtToken", jwt);
+		cookie.setPath("/");
+		cookie.setMaxAge(60 * 60 * 10);
+		// cookie.setSecure(true); // True Only while deploying for https connections
+		cookie.setHttpOnly(true);
+		res.addCookie(cookie);
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 
