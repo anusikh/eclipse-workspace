@@ -98,6 +98,8 @@ public class ProductController {
 
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
+		System.out.println("Anusikh -- " + userDetails.getAuthorities());
+
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
 
 		Cookie cookie = new Cookie("jwtToken", jwt);
