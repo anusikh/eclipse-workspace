@@ -15,7 +15,6 @@ public class BlogService {
 	private BlogRepository blogRepository;
 
 	public Blog saveBlog(Blog blog) {
-		// TODO: add user saving function
 		return blogRepository.save(blog);
 	}
 

@@ -27,6 +27,7 @@ public class Blog {
 	@ManyToOne
 	@JoinColumn(name = "id")
 	private MyUser user;
+	// Im Storing the userId of the user from MyUser table
 
 	Blog() {
 	}

@@ -55,6 +55,11 @@ public class BlogController {
 		return blogService.saveBlog(blog);
 	}
 
+	@GetMapping("/blog/{blogId}")
+	public Blog findBlogById(@PathVariable int blogId) {
+		return blogService.getBlogById(blogId);
+	}
+
 	@GetMapping("/blogs")
 	public List<Blog> findAllBlogs() {
 		return blogService.getBlogs();
